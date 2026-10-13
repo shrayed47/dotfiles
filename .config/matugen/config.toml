@@ -1,0 +1,18 @@
+[config]
+
+[config.wallpaper]
+set = true
+command = "awww img --transition-type center {{ image }}"
+
+[templates.hyprland]
+input_path = '~/.config/matugen/hyprland_colors.lua'
+output_path = '~/dotfiles/.config/hypr/colors.lua' # If using lua config replace *.conf* with *.lua* at the end
+
+[templates.waybar]
+input_path = '~/.config/matugen/colors.css'
+output_path = '~/dotfiles/.config/waybar/colors.css'
+post_hook = 'pkill -SIGUSR2 waybar'
+
+[templates.rofi]
+input_path = '~/.config/matugen/colors.rasi'
+output_path = '~/dotfiles/.config/rofi/colors.rasi'
