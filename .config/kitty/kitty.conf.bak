@@ -21,12 +21,12 @@ sync_to_monitor no
 
 window_padding_width 20
 
-background_opacity 0.9
+background_opacity 0.8
 background_blur 64
 
-
+scrollback_indicator_opacity 0.0
 
 # BEGIN_KITTY_THEME
-# Ayu
+# Sequoia Monochrome Dark
 include current-theme.conf
 # END_KITTY_THEME

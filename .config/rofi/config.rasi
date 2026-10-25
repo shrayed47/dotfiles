@@ -1,9 +1,0 @@
-@import "colors.rasi"
-
-* {
-    background: @surface-container;
-    alternate-normal-background: @surface-container-high;
-    foreground: @secondary;
-    selected-normal-foreground: @primary;
-    selected-normal-background: @tertiary-container;
-}

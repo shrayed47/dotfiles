@@ -7,16 +7,14 @@
 }
 
 window#waybar {
-    background: @background;
+    background: @transparent;
 }
 
 #workspaces button {
     padding: 3px;
-    margin: 7px 0px 7px 7px;
-    background: transparent;
+    margin: 7px 0px 0px 7px;
+    background: @surface_bright;
     border-radius: 2px;
-
-    background-color: @secondary_container;
 }
 
 #workspaces button label {
@@ -24,11 +22,11 @@ window#waybar {
 }
 
 #workspaces button.active {
-    background-color: @primary_container;
+    background-color: @primary;
 }
 
 #workspaces button.active label {
-    color: @on_background;
+    color: @background;
     font-weight: 900;
 }
 
@@ -38,22 +36,27 @@ window#waybar {
 #network,
 #cpu,
 #memory,
-#volume,
-#custom-power {
-    border-radius: 8px;
+#volume {
+    border-radius: 15px;
     padding: 5px 8px;
-    margin: 5px 10px 5px 0px;
+    margin: 5px 10px 0px 0px;
+    font-weight: bold;
     color: @on_background;
-    background-color: @secondary_container;
+    background-color: @surface_bright;
 }
 
 #media,
 #custom-media-animation,
 #custom-media-now-playing,
 #custom-media-time,
-#clock,
-#pulseaudio {
+#clock {
     color: @on_background;
+    background: @surface_bright;
+    font-weight: bold;
+    padding: 0px 8px;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    border-radius: 15px;
 }
 
 #pulseaudio-slider {
@@ -83,15 +86,15 @@ window#waybar {
     min-width: 10px;
     border-radius: 5px;
     border: none;
-    background-color: @tertiary;
+    background-color: @primary;
 }
 #media {
-    margin: 7px 0px 7px 80px;
+    margin: 7px 0px 0px 80px;
 }
 
 #custom-media-animation {
     font-size: 13px;
-    margin-right: 10px;
+    color: @primary;
 }
 
 #custom-media-now-playing {
@@ -104,7 +107,4 @@ window#waybar {
 
 tooltip {
     border-radius: 5px;
-}
-
-tooltip label {
 }

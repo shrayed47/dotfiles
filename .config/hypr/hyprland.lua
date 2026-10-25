@@ -34,8 +34,8 @@ local zedProjects = "zeditor ~/Projects"
 local zedConfig = "zeditor ~/dotfiles"
 
 -- ROFI
-local launcher = "rofi -show drun -show-icons"
-local runner = "rofi -show run"
+local launcher = "~/.config/rofi/launchers/type-1/launcher.sh"
+local runner = "~/.config/rofi/launchers/type-1/runner.sh"
 
 -- hyprshot
 local hyprshot_region = "hyprshot -m region"
@@ -52,7 +52,6 @@ local hyprshot_window = "hyprshot -m window"
 --
 hl.on("hyprland.start", function()
 	hl.exec_cmd("waybar")
-	hl.exec_cmd("hyprpaper")
 	hl.exec_cmd("playerctld daemon")
 	hl.exec_cmd("awww-daemon")
 	hl.exec_cmd("systemctl --user start hyprpolkitagent")
@@ -262,8 +261,8 @@ local secondMod = "SUPER + ALT"
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
 hl.bind(secondMod .. " + RETURN", hl.dsp.exec_cmd(projTerminal))
-hl.bind(mainMod .. " + F", hl.dsp.exec_cmd(fileManager))
-hl.bind(secondMod .. " + F", hl.dsp.exec_cmd(projFileManager))
+hl.bind(mainMod .. " + N", hl.dsp.exec_cmd(fileManager))
+hl.bind(secondMod .. " + N", hl.dsp.exec_cmd(projFileManager))
 
 -- PROGRAMS
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
@@ -285,8 +284,8 @@ hl.bind(
 	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
 )
 
-hl.bind(secondMod .. " + T", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(secondMod .. " + F", hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" }))
+hl.bind(mainMod .. " + T", hl.dsp.window.float({ action = "toggle" }))
+hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" }))
 -- hl.bind(mainMod .. " + C", hl.dsp.window.pseudo())
 -- hl.bind(mainMod .. " + V", hl.dsp.layout("togglesplit"))    -- dwindle only
 
@@ -328,13 +327,13 @@ hl.bind("ALT + j", hl.dsp.exec_cmd("playerctl position 5-"), { locked = true })
 -- and https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
 
 -- Example window rules that are useful
+--
+-- Always float htop and btop on launch
 hl.window_rule({
-	match = { class = "dev.zed.Zed" },
-	workspace = "1",
-})
-hl.window_rule({
-	match = { class = "Spotify" },
-	workspace = "2",
+	match = {
+		initial_title = "^(htop|btop|bluetui)$",
+	},
+	float = true,
 })
 
 hl.window_rule({

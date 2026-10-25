@@ -2,14 +2,7 @@
   "layer": "top",
   "modules-left": ["hyprland/workspaces", "group/media"],
   "modules-center": ["clock"],
-  "modules-right": [
-    "group/volume",
-    "bluetooth",
-    "network",
-    "cpu",
-    "memory",
-    "custom/power",
-  ],
+  "modules-right": ["group/volume", "bluetooth", "network", "cpu", "memory"],
   "hyprland/window": {
     "max-length": 50,
   },
@@ -96,11 +89,6 @@
     "exec": "~/.config/waybar/custom_modules/media/media-time.sh",
     "escape": true,
     "interval": 1,
-    "tooltip": false,
-  },
-  "custom/power": {
-    "format": "⏻",
-    "on-click": "wlogout",
     "tooltip": false,
   },
 }
